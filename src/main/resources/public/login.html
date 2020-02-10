@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>Login</title>
+    <link href="css/in.css" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.min.js"></script>
+    <script src="js/axios.min.js"></script>
+</head>
+<body>
+<div id="container">
+    <header>
+        <section>
+            <a href="index.html"><h1>HELLO</h1></a>
+            <nav>
+                <a href="#">关于</a>
+                <a href="#">支持</a>
+                <span class="vr"></span>
+                <a href="#">注册</a>
+                <a href="../H5_web/login.html">登陆</a>
+            </nav>
+        </section>
+    </header>
+
+    <section>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2><br>
+            <div id="error"></div>
+            <input type="text" id="username" class="form-control" placeholder="账号" v-model='username' required autofocus onkeypress="clickEnter();">
+            <input type="password" id="password" class="form-control" placeholder="密码" v-model='password' required onkeypress="clickEnter();">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me">记住我
+                </label>
+            <a href="#">忘记密码?</a>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="button" id="sender" @click="login" onclick="login()">登陆</button>
+        </form>
+    </section>
+    
+    <footer>
+        <h1>© HELLOLIAN.COM. DESIGN BY <a href="#">HELLOLIAN.COM</a></h1>
+    </footer>
+</div>
+</body>
+</html>
+<script>
+    function clickEnter()
+    {
+      if(event.keyCode==13) {
+        document.getElementById("sender").click();
+      }   
+    }
+    function login() {
+        if(document.getElementById("username").value=="") {
+            document.getElementById("error").innerHTML="请输入用户名！";
+            document.getElementById("username").focus();
+            return false;
+        } else if(document.getElementById("password").value=="") {
+            document.getElementById("error").innerHTML="请输入密码！";
+            document.getElementById("password").focus();
+            return false;
+        } else {
+            
+            return true;
+        }
+    }
+
+    var url="localhost:8080/login"
+    new Vue({
+    	el: '#container',
+    	data:{
+    		username:""
+    		password:""
+    	},
+    	mounted:function(){ //mounted　表示这个 Vue 对象加载成功了
+	    		doClick:function() {
+		    		var self = this
+			        axios.get(url).then(function(response) {
+		            self.heros= response.data; //此时还是字符串
+		            self.heros = eval("("+self.heros+")");  //字符串转换为数组对象
+	        	})
+	    	}
+	    	
+		}
+    })
+
+</script>

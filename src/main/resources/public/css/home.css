@@ -1,0 +1,131 @@
+body {
+	background: #fff;
+}
+#demo-list a{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	white-space:nowrap;
+	width:100%;
+}
+
+.buttonlist h1 {
+    z-index: 100;
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 260px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    background: #383838 url(../img/list.png);
+    background-size: 30px;
+    background-repeat:no-repeat; 
+	background-position:center;
+    /*鼠标光标*/
+    cursor: pointer;
+}
+#main {
+	background: #fff;
+}
+.main-body {
+	padding-left: 260px; 
+}
+.main-header {
+	height: 40px;
+	padding: 7px 0 0 14px;
+	font-size: 20px;
+	background: #fff;
+	border-bottom: 2px solid #e5e4e4;
+	border-left:  2px solid #e5e4e4;
+	display: block;
+}
+.main-main {
+	padding: 40px 0 0 20px;
+	line-height: 2;
+	/*font-style: Times;*/
+	font-size: 18px;
+	font-family: Helvetica;
+}
+.main-main h1 {
+	font-size: 35px;
+	font-weight: bold;
+}
+footer {
+position: absolute;
+background-color: #777777;
+bottom: 0;
+padding: 10px 0;
+/*width: 83%;*/
+width: 100%;
+}
+footer h1 {
+font-size: 14px;
+margin:0;
+padding:0 10px;
+text-align: center;
+font-family: Arial, Helvetica, sans-serif;
+}
+footer a {
+  color: #334;
+}
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+@-webkit-keyframes move_right {
+    from {
+        -webkit-transform: translateX(-260px);
+        transform: translateX(-260px);
+    }
+    to {
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
+    }
+}
+@keyframes move_right {
+	from {
+	 	-webkit-transform: translateX(-260px);
+        transform: translateX(-260px);
+	}
+	to {
+    	-webkit-transform: translateX(0px);
+    	transform: translateX(0px);
+	}
+}
+@-webkit-keyframes move_left {
+    from {
+        }
+        to {
+            -webkit-transform: translateX(-260px);
+            transform: translateX(-260px);
+        }
+}
+@keyframes move_left {
+    from {
+    }
+    to {
+        -webkit-transform: translateX(-260px);
+        transform: translateX(-260px);
+    }
+}
+.move_right {
+    -webkit-animation-name            : move_right;
+    animation-name            : move_right;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}
+.move_left {
+    -webkit-animation-name            : move_left;
+    animation-name            : move_left;
+    -webkit-animation-duration        : 1s;
+    animation-duration        : 1s;
+    -webkit-animation-iteration-count : 1;
+    animation-iteration-count : 1;
+    -webkit-animation-fill-mode : forwards;
+    animation-fill-mode : forwards;
+}

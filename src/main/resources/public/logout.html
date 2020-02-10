@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>logout</title>
+<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.min.js"></script>
+<script src="js/axios.min.js"></script>
+</head>
+<body>
+
+	<div id="app">
+
+	username: <input v-model="username" >
+	password: <input v-model="password" >
+
+    <button v-on:click="login" >提交数据</button>
+	</div>
+
+	<script>
+
+    var url="/login"
+    var app = new Vue({
+    	el: '#app',
+    	data:{
+    		username:"admin",
+    		password:"1"
+    	},
+    	methods:{ //mounted　表示这个 Vue 对象加载成功了
+    		login:function() {
+	    		
+		        axios.post(url,app.$data)
+		        .then(res=> {
+		        	console.log('res=>',res)
+		        })
+	    	}
+	    	
+		}
+    })
+ 
+</script>
+</body>
+</html>
